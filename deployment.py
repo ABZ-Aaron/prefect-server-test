@@ -1,7 +1,6 @@
 from prefect import flow
 
 github_url = "https://github.com/ABZ-Aaron/prefect-server-test.git"
-work_pool_one = "my-work-pool"
 
 if __name__ == "__main__":
     
@@ -12,7 +11,7 @@ if __name__ == "__main__":
         entrypoint=entrypoint,
     ).deploy(
         name=deployment_name,
-        work_pool_name=work_pool_one,
+        work_pool_name="dev-workpool-a",
     )
     
     deployment_name = "my-github-deployment_two"
@@ -22,5 +21,5 @@ if __name__ == "__main__":
         entrypoint=entrypoint,
     ).deploy(
         name=deployment_name,
-        work_pool_name=work_pool_one,
+        work_pool_name="prod-workpool-a",
     )
