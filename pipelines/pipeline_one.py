@@ -1,15 +1,6 @@
-from prefect import flow
-from utilities.common_functions import say_goodbye
-import os
+from prefect import flow, get_run_logger
 
-@flow(log_prints=True)
-def my_flow():
-    secret_value = os.getenv("environment")
-    print(secret_value)
-    print("Hello World")
-    say_goodbye()
-    
-if __name__ == "__main__":
-    my_flow()
-    
-    
+@flow
+def hello_flow(env: str = "dev"):
+    logger = get_run_logger()
+    logger.info(f"👋 Hello from {env} environment!")
