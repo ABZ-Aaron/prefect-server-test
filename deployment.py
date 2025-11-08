@@ -37,7 +37,7 @@ def main():
 
     for cfg in FLOWS:
         deployment_name = f"{cfg['name']}-{ENV}"
-        work_pool = f"{ENV}-pool"
+        work_pool = f"{ENV}-workpool-a"
         schedule = cfg["schedule"].get(ENV)
 
         print(f"📦 Creating deployment: {deployment_name} -> {work_pool}")
